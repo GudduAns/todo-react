@@ -1,16 +1,23 @@
 import './App.css'
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+} from "react-router-dom";
+
+import Todo from './Components/Todo';
+import Console from './ExtraStuff/Console';
 
 function App() {
-  const changeTheme = () => {
-    if (document.getElementsByTagName('html')[0].classList.contains('myclss')) {
-      document.getElementsByTagName('html')[0].classList.remove('myclss')
-    } else {
-      document.getElementsByTagName('html')[0].classList.add('myclss')
-    }
-  }
   return (
     <>
-      <button onClick={changeTheme}>Change Theme</button>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/todo" element={<Todo />} />
+          <Route path="/console" element={<Console />} />
+          <Route path="/*" element={<p>page not found</p>} />
+        </Routes>
+      </BrowserRouter>
 
     </>
   )
