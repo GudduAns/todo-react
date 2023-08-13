@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TodoCard = ({ data, deletHandle }) => {
+const TodoCard = ({ data, deletHandle, editHandle }) => {
     return (
         <>
             <div className="container text-center my-5">
@@ -11,8 +11,9 @@ const TodoCard = ({ data, deletHandle }) => {
                             <div className="col-md-4 col-12" key={key}>
                                 <div className="card my-2" >
                                     <div className="card-body">
-                                        <h5 className="card-title">{val.title}</h5>
-                                        <p className="card-text">{val.desc}</p>
+                                        <h5 className="card-title">{val?.title}</h5>
+                                        <p className="card-text">{val?.desc}</p>
+                                        <button className="btn btn-success mx-2" onClick={() => editHandle(val._id)}>Edit</button>
                                         <button className="btn btn-danger" onClick={() => deletHandle(key)}>Delete</button>
                                     </div>
                                 </div>

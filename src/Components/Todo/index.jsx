@@ -17,18 +17,47 @@ const Todo = () => {
     const [desc, setDesc] = useState('')
 
     const [allTodo, setAllTodo] = useState(getLocalData)
+    const [seletedID, setSeletedID] = useState(null)
 
     const submitHandle = (e) => {
         e.preventDefault()
-        const myData = { title: title, desc: desc }
-        setAllTodo([...allTodo, myData])
+        const myData = { title: title, desc: desc, _id: new Date().getTime().toString() }
+        if (seletedID) {
+            setAllTodo(
+                allTodo.map((val) => {
+                    if (val._id === seletedID) {
+                        return [...allTodo, myData]
+                        console.log('ffff')
+                    }
+                })
+            )
+            console.log(allTodo, title)
+        } else {
+            setAllTodo([...allTodo, myData])
+            setTitle('')
+            setDesc('')
+        }
+
     }
     function deletHandle(e) {
         const DeleteItem = allTodo.filter((val, key) => {
             return e !== key
         })
         setAllTodo(DeleteItem)
-        console.log(e, allTodo)
+    }
+
+    function editHandle(e) {
+        setSeletedID(e)
+        allTodo.map((val) => {
+            if (val._id === e) {
+                setTitle(val.title)
+                setDesc(val.desc)
+            }
+            return allTodo
+        })
+    }
+    function saveEditHandle(e) {
+        e.preventDefault()
     }
 
     useEffect(() => {
@@ -58,10 +87,22 @@ const Todo = () => {
                             onChange={(e) => setDesc(e.target.value)}
                         />
                     </div>
-                    <button onClick={submitHandle} type="submit" className="btn btn-primary">Submit</button>
+                    {true ?
+                        <button onClick={submitHandle}
+                            type="submit"
+                            className="btn btn-primary">
+                            Submit
+                        </button>
+                        :
+                        <button onClick={saveEditHandle}
+                            type="submit"
+                            className="btn btn-success">
+                            Edit
+                        </button>
+                    }
                 </form>
             </div>
-            <TodoCard data={allTodo} deletHandle={deletHandle} />
+            <TodoCard data={allTodo} deletHandle={deletHandle} editHandle={editHandle} />
         </>
     )
 }
