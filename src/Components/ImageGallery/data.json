@@ -1,0 +1,34 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "orange",
+            "description": "Lorem Ipsum is simply dummy text of the printing."
+        },
+        {
+            "id": 2,
+            "name": "mango",
+            "description": "Lorem Ipsum is simply dummy text of the printing."
+        },
+        {
+            "id": 3,
+            "name": "orange",
+            "description": "Lorem Ipsum is simply dummy text of the printing."
+        },
+        {
+            "id": 4,
+            "name": "papaya",
+            "description": "Lorem Ipsum is simply dummy text of the printing."
+        },
+        {
+            "id": 5,
+            "name": "mango",
+            "description": "Lorem Ipsum is simply dummy text of the printing."
+        },
+        {
+            "id": 6,
+            "name": "orange",
+            "description": "Lorem Ipsum is simply dummy text of the printing."
+        }
+    ]
+}
