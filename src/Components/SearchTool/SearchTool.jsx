@@ -24,12 +24,21 @@ const SearchTool = () => {
                 onChange={handleChange}
             />
             <br />
-            {   
-               data.data.filter(item=>item.name.toLowerCase().includes(inputVal.toLowerCase()))
+            {/* {   
+               data.data.filter(item=> item.name.toLowerCase().includes(inputVal.toLowerCase()))
                .map((val, key) => {
                     return (
                         <p style={{ 'color': '#ffffff73' }} key={key}>{val.name}</p>
                     )
+                })
+            } */}
+            {
+                data.data.filter((item)=>{
+                    return (
+                        item.name.toLowerCase().includes(inputVal.toLowerCase())
+                    )
+                }).map((e)=>{
+                    return  <p style={{ 'color': '#ffffff73' }} >{e.name}</p>
                 })
             }
         </div>
