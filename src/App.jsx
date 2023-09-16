@@ -11,7 +11,10 @@ import ImageGallery from './Components/ImageGallery';
 import SearchTool from './Components/SearchTool/SearchTool';
 import Redux from './Components/Redux';
 import { Provider } from 'react-redux';
-import Store from './Components/Redux/Store/Store';
+// import Store from './Components/Redux/Store/Store';
+import ReduxNew from './Components/ReduxNew/ReduxNew';
+import { Store } from './Store';
+
 function App() {
   return (
     <Provider store={Store}>
@@ -22,6 +25,7 @@ function App() {
           <Route path="/image-gallery" element={<ImageGallery />} />
           <Route path="/search-tool" element={<SearchTool />} />
           <Route path="/redux" element={<Redux />} />
+          <Route path="/redux-new" element={<ReduxNew />} />
           <Route path="/*" element={<p>page not found</p>} />
         </Routes>
       </BrowserRouter>
