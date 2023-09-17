@@ -1,22 +1,19 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { incHandle } from '../Redux/Action';
+import { UpHandle } from './Store/actions/UpdownAction'
 
 const ReduxNew = () => {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
     const { inputVal } = useSelector((state) => {
         return {
-            inputVal: state.UpDownReducer,
+            inputVal: state.UpDownHandler,
         }
     })
 
-    console.log(inputVal, 'inputVal');
-    const incrementHandle = () => {
-        // dispatch(incHandle({ type: "INCREMENT" }))
-    }
+    console.log(inputVal, 'inputVal')
 
-    const decrimenttHandle = () => {
-        console.log('decrimenttHandle')
+    const handleIncrement = () => {
+        dispatch(UpHandle())
     }
 
     return (
@@ -24,13 +21,18 @@ const ReduxNew = () => {
             <div className="container my-3">
                 <div className="d-flex">
                     <button className="btn btn-danger mx-3 btn-m"
-                        onClick={() => decrimenttHandle()}
+
                     >
                         -
                     </button>
-                    <input type="email" className="form-control w-auto" value={inputVal} onChange={() => { }} />
+                    <input
+                        type="email"
+                        className="form-control w-auto"
+                        value={inputVal}
+                        onChange={() => { }}
+                    />
                     <button className="btn btn-success mx-3 btn-m"
-                        onClick={() => incrementHandle()}
+                        onClick={() => handleIncrement()}
                     >+</button>
                 </div>
             </div>

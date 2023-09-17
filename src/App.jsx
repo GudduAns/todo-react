@@ -11,9 +11,9 @@ import ImageGallery from './Components/ImageGallery';
 import SearchTool from './Components/SearchTool/SearchTool';
 import Redux from './Components/Redux';
 import { Provider } from 'react-redux';
-import Store from './Components/Redux/Store/Store';
-import ReduxNew from './Components/ReduxNew/ReduxNew';
-// import { Store } from './Store';
+// import Store from './Components/Redux/Store/Store';
+import ReduxNew from './Components/zReduxNew/ReduxNew';
+import { Store } from './Components/zReduxNew/Store';
 
 function App() {
   return (
